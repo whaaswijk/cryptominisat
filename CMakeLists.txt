@@ -28,6 +28,11 @@ include (GNUInstallDirs)
 message(STATUS "LIB directory is '${CMAKE_INSTALL_LIBDIR}'")
 message(STATUS "BIN directory is '${CMAKE_INSTALL_BINDIR}'")
 
+# Surpress external library warnings
+if (UNIX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
+endif()
+
 if(POLICY CMP0048)
     #policy for VERSION in cmake 3.0
     cmake_policy(SET CMP0048 NEW)
